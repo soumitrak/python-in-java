@@ -92,7 +92,9 @@ public class PythonInJava {
             log("Getting parse method");
             final PyObject parseMethod = interpreter.get("parse");
 
-            parse(parseMethod, new Beach("Hapuna", "The Big Island"), "sk");
+            final Beach beach = new Beach("Hapuna", "The Big Island");
+            parse(parseMethod, beach, "sk");
+            log("Msg set in Python : " + beach.getMsg());
         } catch (PySyntaxError error) {
             log("Exception " + error.getClass().getCanonicalName());
             error.printStackTrace();
